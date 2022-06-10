@@ -1,0 +1,403 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Quicksand:wght@300&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    color: #ffffff;
+    font-family: 'quicksand', sans-serif;
+}
+
+/*HEADER*/
+
+.header-wrapper { /*div principal*/
+    height: 100vh;
+    width: 100%;
+    background:  linear-gradient(-45deg, #636A74ff, #354252ff, #443A38ff, #2E282Aff);
+    
+    background-size: 400% 400%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative; /*pra conseguir usar o menu mais tarde*/
+    animation: backgroundTransition 10s ease-in-out infinite;
+}
+
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+h2 {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+.social-media {
+    margin-top: 1rem;
+    display: flex;
+}
+
+.social-media a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 24px;
+    padding: 1rem 4rem;
+    border: 1px solid #ffffff;
+    min-width: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s cubic-bezier(0.55, 0.025, 0.675, 0.97);
+}
+
+a:hover {
+    color: #354252ff;
+    background-color: #ffffff;
+}
+
+@keyframes backgroundTransition {
+    0% {
+        background-position: 0% 80%;
+    }
+    50% {
+        background-position: 80% 100%;
+    }
+    100% {
+        background-position: 0% 90%;
+    }
+}
+
+/*menu hamburguer*/
+
+.checkbox-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkbox {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999; /*pra ele ficar na frente de tudo. z-indez negativo fica atrás*/
+    transition: 400ms ease-in-out 0s;
+}
+
+.checkbox .trace {
+    width: 50px;
+    height: 2px;
+    background-color: #ffffff;
+    position: absolute;
+    border-radius: 4px;
+    transition: 0.5s ease-in-out;
+}
+
+.checkbox .trace:nth-child(1){
+    top: 26px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(2){
+    top: 46px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(3){
+    top: 66px;
+    transform: rotate(0);
+}
+
+#toggle { /*some com o quadradinho*/
+    display: none;
+}
+
+/*MENU E ANIMAÇÃO DO MENU*/
+.menu {
+    position: absolute;
+    top: 28px;
+    right: 30px;
+    background: transparent;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 0px #ffffff; /*zerado pro box-shadow começar no cantinho em zero, depois modifica ess valor pra ele exandir pra tela inteira*/
+    z-index: -1;
+    transition: 400ms ease-in-out 0s;
+}
+
+.menu-items {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; /*qd o menu tiver no fim, estará em 1. esse item fica em 2 pra ficar na frente*/
+    opacity: 0;
+    visibility: hidden;
+    transition: 400ms ease-in-out 0s;
+}
+
+.menu-items ul { 
+    list-style-type: none;
+}
+
+.menu-items ul li a {
+    margin: 10px 0;
+    color: #354252ff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 40px;
+}
+
+/*ANIMAÇÃO DO MENU*/
+
+#toggle:checked + .checkbox .trace:nth-child(1) {
+    transform: rotate(45deg);
+    background-color: #354252ff;
+    top: 47px;
+}
+
+#toggle:checked + .checkbox .trace:nth-child(2) {
+    transform: translate(-100px);
+    width: 30px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#toggle:checked + .checkbox .trace:nth-child(3) {
+    transform: rotate(-45deg);
+    background-color: #354252ff;
+    top: 48px;
+}
+
+/*ANIMAÇÃO DA BOLHA*/
+
+#toggle:checked + .checkbox {
+    background-color: white;
+}
+
+#toggle:checked ~ .menu {
+    box-shadow: 0px 0px 0px 100vmax white;
+    z-index: 1;
+}
+
+#toggle:checked ~ .menu-items {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* SOBRE */
+
+.container1 {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; /*space-between*/
+    align-items: center; 
+    margin: 3rem 0;
+}
+
+.subtitle {
+    color: #354252ff;
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 4px; 
+}
+
+.card-container1 {
+    display: flex;
+    align-items: center;
+    margin-right: 30%;
+    width: 90%; /*gap*/
+}
+
+.photo{
+   width: 25%;
+   margin-left: 40%;
+   margin-bottom: 15px;
+    /*border: 1px solid #505050;*/
+    border-radius:50%;
+    position: relative;
+}
+
+.text {
+    width: 100%;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    color: rgb(109, 109, 109);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* HOME - CARDS */
+
+.container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; /*space-between*/
+    align-items: center; 
+    margin: 3rem 0;
+}
+
+.card-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%; /*gap*/
+}
+
+.card {
+    height: 300px;
+    width: 400px;
+    margin: 3rem 0 0;
+    background-image: url('jupiter4.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: sepia(0.5);
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card a { 
+    text-decoration: none;
+}
+
+.card-text {
+    width: 40%;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    color: rgb(109, 109, 109);
+}
+
+.card-wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+
+
+/* ANIMAÇÃO DOS CARDS */
+
+.card-wrapper::before { /*margem*/
+    content: '';
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    display: block;
+    border: 1px solid white;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.card-wrapper h2 {
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0;
+    transition: 0.3s;
+}
+
+.card-wrapper p {
+    font-size: 0;
+    visibility: hidden;
+    opacity: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+
+.card:hover {
+    filter: unset; /*tira o filtro*/
+}
+
+.card:hover > .card-wrapper::before {
+    opacity: 1;
+    width: 350px;
+    height: 250px;
+}
+
+.card:hover > .card-wrapper p {
+    font-size: 14px;
+    opacity: 1;
+    visibility: visible;
+    text-decoration: none;
+}
+
+
+/* FOOTER */
+
+.footer {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #354252ff;
+}
+
+
+/* RESPONSIVO - MOBILE */
+
+@media(max-width:800px) {
+    .social-media {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .container {
+        margin-top: 0;
+    }
+    
+    .card-container {
+        flex-direction: column;
+    }
+    
+    .container .card-container:nth-child(1),
+    .container .card-container:nth-child(3) {
+        flex-direction: column-reverse;
+    }
+    
+    .card {
+        height: 250px;
+        width: 250px;
+    }
+    
+    .card-text {
+        width: 90%;
+        margin-top: 2rem;
+        text-align: center;
+    }
+    
+    .card:hover > .card-wrapper::before {
+        height: 210px;
+        width: 210px;
+    }
+}
+

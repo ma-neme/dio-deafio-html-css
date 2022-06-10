@@ -1,0 +1,9 @@
+verde agua escurao: #12483D
+paleta azul/verde meio sem variação: #386378, #387C6A, #388E60, #4B7C57
+
+
+BOM:
+
+  linear-gradient(-45deg, #242A38ff, #353135ff, #6F7C8Cff, #9F9D9Fff, #A4A8B3ff);
+
+linear-gradient(135deg, #C4C5CAff, #636A74ff, #354252ff, #5B5658ff, #2E282Aff);
