@@ -18,4 +18,3 @@ Problemas:
 - Tive dficuldades com os links externos, não consegui anexá-los aos cards em (4).  (Tentei colocar dentro da âncora dentro e fora da div, fora deu certo, mas acabou com a animação do card; tentei colocar o href em diversos locais diferentes, h1, div, etc, tampouco deu certo)
 - Não consegui fazer com que a bolha do menu hamburguer sumisse depois que o link fosse acionado em (1);
 - Tive bastante dificuldade com o alinhamento do texto 'Sobre', ficou um grande espaço entre a foto e o texto, fui arrumando como deu. Acho que não consegui entender muito bem a dinâmica dos containers ainda.
-
